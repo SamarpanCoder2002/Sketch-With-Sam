@@ -7,8 +7,7 @@ class Sketch:
     def __init__(self, root):
         #Take window,Window title and Canvas Control
         self.window = root
-        self.document_name = "New Window"
-        self.window.title("Sketch With Sam" + "-----" + self.document_name)
+        self.window.title("Sketch With Sam" + "-----" + "New Window")
         self.make_canvas = Canvas(self.window, width=1080, height=667, bg="white", relief=RIDGE, bd=8)
         self.make_canvas.place(x=0, y=0)
 
@@ -58,6 +57,11 @@ class Sketch:
         self.color_box = None
         self.color_box_img = None
         self.notation_box = None
+        # Coordinate controller value initialization
+        self.old_x = None
+        self.old_y = None
+        self.new_x = None
+        self.new_y = None
 
         #All initialize Buttons
         self.pencil = Button(self.window)
@@ -114,12 +118,6 @@ class Sketch:
         self.erase_width_maintainer = 5
         self.active_coloring = 2
 
-        #Coordinate controller value initialization
-        self.old_x = None
-        self.old_y = None
-        self.new_x = None
-        self.new_y = None
-
         #Some default function call
         self.control(1)#Make sure that canvas will available to use of pencil by default
         self.controller()
@@ -131,6 +129,7 @@ class Sketch:
         self.make_canvas.bind('<Shift-MouseWheel>',self.color_box_width_controller)
         self.make_canvas.bind('<Motion>',self.movement_cursor)
 
+    #Take Control on the functionality
     def control(self,notation):
         if self.temp:
             self.make_canvas.delete(self.temp.pop())
@@ -201,6 +200,7 @@ class Sketch:
         elif notation == 22:
             messagebox.showinfo("Movement Direction","At first click on the shape or line number from indexing box\n\n1. Right Arrow---->  Right Movement\n\n2. Left Arrow----> Left Movement\n\n3. Up Arrow---->Up Movement\n\n4. Down Arrow--->Down Movement\n\n5. Space Button--->Stop Movement")
 
+    #Controller box setup
     def controller(self):
         self.controller_set = LabelFrame(self.window,text="Controller",bg="orange",fg="blue",width=250,height=684,relief=RAISED,bd=10, font=("Arial", 10, "bold"))
         self.controller_set.place(x=1100,y=0)
@@ -300,25 +300,22 @@ class Sketch:
                              font=("Arial", 10, "bold"), relief=RAISED, bd=3,command=lambda: self.control(14))
         self.color_box.place(x=200, y=250)
 
+        #Movement keyboard setup
         self.window.bind('<space>', self.movement)
         self.window.bind('<Left>', self.movement)
         self.window.bind('<Right>', self.movement)
         self.window.bind('<Up>', self.movement)
         self.window.bind('<Down>', self.movement)
 
+    #Menu setup
     def make_menu(self):
         self.my_menu = Menu(self.window)
         self.window.config(menu=self.my_menu)
-
-        menu_img = ["new_img.jpg", "open_img.jpg", "save_img.png", "exit_img.png",
-                         "undo_img.jpg", "clear_img.png", "cut_img.png", "copy_img.jpg", "paste_img.jpg",
-                    "screenshot_img.jpg", "bgcolor_img.jpg", "fill_outline_img.png", "zoom_in_img.png", "zoom_out_img.png", "colorpen_img.png", "movement_img.png","about_img.jpg"]
-
+        menu_img = ["new_img.jpg", "open_img.jpg", "save_img.png", "exit_img.png", "undo_img.jpg", "clear_img.png", "cut_img.png", "copy_img.jpg", "paste_img.jpg","screenshot_img.jpg", "bgcolor_img.jpg", "fill_outline_img.png", "zoom_in_img.png", "zoom_out_img.png", "colorpen_img.png", "movement_img.png","about_img.jpg"]
         for i in range(17):
             self.menu_img_container.append(i)
             self.menu_img_container[i] = ImageTk.PhotoImage(
                 Image.open("Pictures/" + menu_img[i]).resize((30, 30), Image.ANTIALIAS))
-
 
         self.file_menu = Menu(self.my_menu,tearoff=False)
         self.my_menu.add_cascade(label="File",menu=self.file_menu)
@@ -364,17 +361,17 @@ class Sketch:
         self.help_menu.add_command(label="About",command=self.about,image=self.menu_img_container[16],compound=LEFT,background="green",foreground="yellow",font=("Arial",10,"bold"),activebackground="yellow",activeforeground="green")
         self.help_menu.add_command(label="Tips", command=self.tips, image=self.menu_img_container[16], compound=LEFT, background="green", foreground="yellow", font=("Arial", 10, "bold"), activebackground="yellow", activeforeground="green")
 
-    def movement_cursor(self, e):
+    def movement_cursor(self, e):#For cursor position by movement
         self.coord.config(text=str(e.x) + "," + str(e.y) + "px")
 
-    def make_status_bar(self):
+    def make_status_bar(self):#Make status bar
         self.status = Label(self.window, text="Sketch With Passion", fg="green", bg="#D3D3D3", font=("Arial", 12, "bold"))
         self.status.place(x=1150, y=685)
 
         self.coord = Label(self.window, text="", fg="green", bg="#D3D3D3", font=("Arial", 9, "bold"))
         self.coord.place(x=20, y=685)
 
-    def open_file(self,e):
+    def open_file(self,e):#For open a file
         self.status['text'] = "Open a File"
         if self.notation_box['state'] == DISABLED:
             self.notation_box['state'] = NORMAL
@@ -393,7 +390,7 @@ class Sketch:
             self.reset()
         self.control(1)
 
-    def save_file(self,e):
+    def save_file(self,e):#for save a file
         self.status['text'] = "Save current file"
         self.status.place(x=1150, y=685)
         file = filedialog.asksaveasfilename(initialdir="Saved_file",filetypes=[("PNG File","*.png")])
@@ -405,7 +402,7 @@ class Sketch:
             ImageGrab.grab().crop((x,y,x1,y1)).save(file+'.png')
             self.window.title("Sketch With Sam" + "-----" + file + ".png")
 
-    def undo(self,e):
+    def undo(self,e):#For undo
         self.status['text'] = "Undo"
         self.status.place(x=1200, y=685)
         if self.notation_box:
@@ -422,7 +419,7 @@ class Sketch:
         if len(self.undo_container) == 0:
             self.clear()
 
-    def clear(self):
+    def clear(self):#For clear the canvas
         self.undo_container.clear()
         self.notation_box.delete(0, END)
         self.file_menu.entryconfig("Save", state=DISABLED)
@@ -439,13 +436,13 @@ class Sketch:
         self.img_counter = -1
         self.counter = -1
 
-    def cut(self,e):
+    def cut(self,e):#Cut the selected region
         self.copy(1)
         self.delete_selected_region(False)
         self.status['text'] = "Selected region cut successfully"
         self.status.place(x=1120, y=685)
 
-    def copy(self,e):
+    def copy(self,e):#Copy the selected region
         try:
             if e!=1:
                self.make_canvas.delete(self.temp.pop())
@@ -469,7 +466,7 @@ class Sketch:
                 messagebox.showerror("Copy Error","Select a region by selector tool under 'Tools Collection', then copy the selected region")
                 print("Copy error")
 
-    def paste(self,e):
+    def paste(self,e):#Paste the region keep in clipboard
         try:
             if self.notation_box['state'] == DISABLED:
                 self.notation_box['state'] = NORMAL
@@ -481,7 +478,7 @@ class Sketch:
         except:
             print("Paste Error")
 
-    def select_region(self,e):
+    def select_region(self,e):#For select a region
         try:
             self.status['text'] = "Select a particular region"
             if self.old_x and self.old_y:
@@ -501,11 +498,11 @@ class Sketch:
         except:
             print("Select region error")
 
-    def delete_selected_region(self,e):
+    def delete_selected_region(self,e):#For delete selected region
         self.make_canvas.itemconfig(self.delete_seg,fill="white",width=0.00001,outline="white")
         self.reset()
 
-    def screen_shot_taking(self, e):
+    def screen_shot_taking(self, e):#For take screen shot
         try:
             self.make_canvas.delete(self.temp.pop())
             time.sleep(0.0000001)
@@ -522,7 +519,7 @@ class Sketch:
             print("Screen shot Error")
             messagebox.showerror("Selection Error","At first select a region by selector under 'Tools Collection', then take screen shot")
 
-    def zoom_controller(self,e):
+    def zoom_controller(self,e):#For Zoom in and Zoom out
         self.status['text'] = "Zoom Controller"
         self.status.place(x=1160, y=685)
         try:
@@ -536,7 +533,7 @@ class Sketch:
             else:
                 self.make_canvas.scale("all", 550, 350, 0.9, 0.9)
 
-    def color_boxer(self,e):
+    def color_boxer(self,e):#Colorbox under 'Tools Collection for pen color'
         self.status['text'] = "Draw with the color pen"
         self.status.place(x=1130,y=685)
         if self.old_x and self.old_y:
@@ -552,7 +549,7 @@ class Sketch:
             self.reset()
         self.make_canvas.bind("<ButtonRelease-1>", color_input)
 
-    def color_box_width_controller(self,e):
+    def color_box_width_controller(self,e):#Color box width maintain by keyboard event or mouse event
         try:
             print(e)
             if e.delta>0:
@@ -565,7 +562,7 @@ class Sketch:
             else:
                 self.color_circle_width_maintainer -= 3
 
-    def reset(self):
+    def reset(self):#Reset
         self.status['text'] = "Sketch With Passion"
         self.status.place(x=1140, y=685)
         if self.notation_box:
@@ -585,7 +582,7 @@ class Sketch:
         self.old_y = None
         self.temp=[]
 
-    def draw_with_pencil(self,e):
+    def draw_with_pencil(self,e):#Draw with pencil
         self.status['text'] = "Draw with the Pencil"
         self.status.place(x=1130, y=685)
         if self.old_x and self.old_y:
@@ -603,7 +600,7 @@ class Sketch:
 
         self.make_canvas.bind("<ButtonRelease-1>", push_value)
 
-    def erasing_setup(self,e):
+    def erasing_setup(self,e):#For eraser
         self.status['text'] = "Erasing"
         self.status.place(x=1180, y=685)
         if self.old_x and self.old_y:
@@ -620,7 +617,7 @@ class Sketch:
 
         self.make_canvas.bind("<ButtonRelease-1>", real_erasing)
 
-    def text_creation_input_take(self):
+    def text_creation_input_take(self):#Text Creation
         def message_show():
             messagebox.showinfo("Done","Click on targeting position on the main window to input text")
         self.status['text'] = "Make your own Text"
@@ -650,7 +647,7 @@ class Sketch:
         self.text_collection.activate(0)
         self.text_collection.selection_set(0)
 
-        def color_choose():
+        def color_choose():#For text color set
             self.text_fg = colorchooser.askcolor()[1]
 
 
@@ -661,7 +658,7 @@ class Sketch:
         self.font_size = Scale(self.top,from_=1,to=100,orient=HORIZONTAL,bg="green",fg="yellow",font=("Arial",10,"bold"),activebackground="red")
         self.font_size.place(x=200,y=433)
 
-        def text_creation(e):
+        def text_creation(e):#For make text on the screen by click
             take = self.make_canvas.create_text(e.x, e.y, text=self.input_take.get(), font=(self.text_collection.get(ACTIVE), self.font_size.get(), "bold", "italic"), fill=self.text_fg)
             self.undo_container.append(take)
             self.notation_box.insert(END, len(self.undo_container) - 1)
@@ -670,7 +667,7 @@ class Sketch:
 
         self.make_canvas.bind("<Button-1>", text_creation)
 
-    def circle_ranging(self,e):
+    def circle_ranging(self,e):#Make Circle
         self.status['text'] = "Draw Circle"
         self.status.place(x=1200, y=685)
         if self.old_x and self.old_y:
@@ -695,7 +692,7 @@ class Sketch:
 
         self.make_canvas.bind('<ButtonRelease-1>',circle_make)
 
-    def rectangle_ranging(self,e):
+    def rectangle_ranging(self,e):#Rectangle Make
         self.status['text'] = "Draw Rectangle"
         self.status.place(x=1200, y=685)
         if self.old_x and self.old_y:
@@ -719,7 +716,7 @@ class Sketch:
 
         self.make_canvas.bind('<ButtonRelease-1>',rectangle_make)
 
-    def straight_line_ranging(self,e):
+    def straight_line_ranging(self,e):#Straight line make
         self.status['text'] = "Draw Straight line"
         self.status.place(x=1160, y=685)
         if self.old_x and self.old_y:
@@ -752,7 +749,7 @@ class Sketch:
 
         self.make_canvas.bind('<Shift-ButtonRelease-1>',straight_line_make)
 
-    def bent_line_ranging(self,e):
+    def bent_line_ranging(self,e):#Bent line make
         self.status['text'] = "Draw bent line"
         self.status.place(x=1160, y=685)
         if self.old_x and self.old_y:
@@ -776,7 +773,7 @@ class Sketch:
 
         self.make_canvas.bind('<ButtonRelease-1>',bent_line_make)
 
-    def dashed_line_ranging(self,e):
+    def dashed_line_ranging(self,e):#Dash line make
         self.status['text'] = "Draw Dash line"
         self.status.place(x=1160, y=685)
         if self.old_x and self.old_y:
@@ -800,7 +797,7 @@ class Sketch:
 
         self.make_canvas.bind('<ButtonRelease-1>',dashed_line_make)
 
-    def traingle_ranging(self, e):
+    def traingle_ranging(self, e):#Traingle make
         self.status['text'] = "Draw Traingle"
         self.status.place(x=1160, y=685)
         if self.old_x and self.old_y:
@@ -825,7 +822,7 @@ class Sketch:
 
         self.make_canvas.bind('<ButtonRelease-1>', traingle_make)
 
-    def parallelogram_ranging(self, e):
+    def parallelogram_ranging(self, e):#Parallelogram make
         self.status['text'] = "Draw a Parallelogram"
         self.status.place(x=1130, y=685)
         if self.old_x and self.old_y:
@@ -851,7 +848,7 @@ class Sketch:
 
         self.make_canvas.bind('<ButtonRelease-1>', parallelogram_make)
 
-    def pentagon_ranging(self, e):
+    def pentagon_ranging(self, e):#pentagon make
         self.status['text'] = "Draw Pentagon"
         self.status.place(x=1160, y=685)
         if self.old_x and self.old_y:
@@ -878,7 +875,7 @@ class Sketch:
 
         self.make_canvas.bind('<ButtonRelease-1>', pentagon_make)
 
-    def hexagon_ranging(self, e):
+    def hexagon_ranging(self, e):#Hexagon make
         self.status['text'] = "Draw Hexagon"
         self.status.place(x=1160, y=685)
         if self.old_x and self.old_y:
@@ -906,7 +903,7 @@ class Sketch:
         self.make_canvas.bind('<ButtonRelease-1>', hexagon_make)
 
 
-    def arrow_up_down_ranging(self, e):
+    def arrow_up_down_ranging(self, e):#Arrow up or down make
         self.status['text'] = "Draw Arrow"
         self.status.place(x=1160, y=685)
         if self.old_x and self.old_y:
@@ -936,7 +933,7 @@ class Sketch:
 
         self.make_canvas.bind('<ButtonRelease-1>', arrow_up_down_make)
 
-    def right_angled_traingle_ranging(self,e):
+    def right_angled_traingle_ranging(self,e):#Right angled traingle make
         self.status['text'] = "Draw Right Angled Traingle"
         self.status.place(x=1120, y=685)
         if self.old_x and self.old_y:
@@ -962,7 +959,7 @@ class Sketch:
 
         self.make_canvas.bind('<ButtonRelease-1>', right_angled_traingle_make)
 
-    def rounded_rectangle_ranging(self,e):
+    def rounded_rectangle_ranging(self,e):#Rounded rectangle make
         self.status['text'] = "Draw Rounded Rectangle"
         self.status.place(x=1120, y=685)
         if self.old_x and self.old_y:
@@ -988,7 +985,7 @@ class Sketch:
 
         self.make_canvas.bind('<ButtonRelease-1>', rounded_rectangle_make)
 
-    def arrow_left_right_ranging(self, e):
+    def arrow_left_right_ranging(self, e):#Arrow left or right make
         self.status['text'] = "Draw Arrow"
         self.status.place(x=1160, y=685)
         if self.old_x and self.old_y:
@@ -1015,7 +1012,7 @@ class Sketch:
 
         self.make_canvas.bind('<ButtonRelease-1>', arrow_left_right_make)
 
-    def movement(self,e):
+    def movement(self,e):#Movement of any widget by selecting indexing number
         try:
             self.status['text'] = "Movement"
             self.status.place(x=1180, y=685)
@@ -1051,20 +1048,20 @@ class Sketch:
         except:
             print("Error: Nothing selected from indexing box")
 
-    def shape_outline_width_controller(self,e):
-        self.width_maintainer = e
-
-    def eraser_width_controller(self,e):
-        self.erase_width_maintainer = e
-
-    def width_controller(self):
+    def width_controller(self):#Width Controller box
         self.make_width_frame = Frame(self.controller_set,relief=GROOVE,bd=5,width=10,height=10,bg="chocolate")
         self.make_width_frame.place(x=10,y=305)
+
+        def shape_outline_width_controller(e):  # Shape Border Width Controller
+            self.width_maintainer = e
+
+        def eraser_width_controller(e):  # Eraser width Controller
+            self.erase_width_maintainer = e
 
         self.shape_outline_width_label = Label(self.make_width_frame,text="Outline Width",font=("Arial",12,"bold"),bg="chocolate",fg="yellow",padx=20)
         self.shape_outline_width_label.pack(pady=4)
 
-        self.width_controller_scale = Scale(self.make_width_frame,orient=HORIZONTAL,from_=0,to=100,bg="green",fg="yellow",font=("Arial",8,"bold"),relief=RAISED,bd=3,command=self.shape_outline_width_controller,activebackground="red")
+        self.width_controller_scale = Scale(self.make_width_frame,orient=HORIZONTAL,from_=0,to=100,bg="green",fg="yellow",font=("Arial",8,"bold"),relief=RAISED,bd=3,command=shape_outline_width_controller,activebackground="red")
         self.width_controller_scale.set(self.width_maintainer)
         self.width_controller_scale.pack(pady=7)
 
@@ -1073,11 +1070,11 @@ class Sketch:
         self.eraser_width_label.pack(pady=4)
 
         self.eraser_controller = Scale(self.make_width_frame, orient=HORIZONTAL, from_=0, to=100, bg="green",activebackground="red",
-                                      fg="yellow", font=("Arial", 8, "bold"), relief=RAISED, bd=3, command=self.eraser_width_controller)
+                                      fg="yellow", font=("Arial", 8, "bold"), relief=RAISED, bd=3, command=eraser_width_controller)
         self.eraser_controller.set(self.erase_width_maintainer)
         self.eraser_controller.pack(pady=7)
 
-    def color_set(self):
+    def color_set(self):#Color set from colorbox
         self.color_frame = Frame(self.controller_set, relief=GROOVE, bd=5, width=10, height=10, bg="orange")
         self.color_frame.place(x=10, y=525)
 
@@ -1159,7 +1156,7 @@ class Sketch:
                                       command=self.set_permanent_choose_color)
         self.permanent_color.grid(row=2, column=5)
 
-    def set_permanent_choose_color(self):
+    def set_permanent_choose_color(self):#Set permanent color: border and background
         self.status['text'] = "Set Permanent Fill and Outline Color"
         self.status.place(x=1120, y=685)
         top = Toplevel()
@@ -1167,7 +1164,7 @@ class Sketch:
         top.geometry("400x200")
         top.wm_iconbitmap("Icons/main_logo.ico")
 
-        def color_set(choice):
+        def color_set(choice):#take color and set
             take_color = colorchooser.askcolor()[1]
             if choice == 1:
                self.fill_color = take_color
@@ -1203,14 +1200,14 @@ class Sketch:
                              command=top.destroy, relief=RAISED, bd=8)
         ok.place(x=280, y=140)
 
-    def activate_coloring(self,notation):
+    def activate_coloring(self,notation):#Colro activation
         if notation == 1:
            self.active_coloring = 1
         else:
            self.active_coloring = 2
 
 
-    def check(self,number,index):
+    def check(self,number,index):#Color set finally in the widget
         try:
             color_list = ["red","#8B4513","blue","grey","yellow","green","orange","black","white","pink","sky blue","violet","#90EE90","#808000"]
             take = self.undo_container[self.notation_box.get(ACTIVE)]
@@ -1237,7 +1234,7 @@ class Sketch:
             else:
                 messagebox.showinfo("Problem Raise","For any kind of lines, only fill(F) allowed")
 
-    def about(self):
+    def about(self):#About under Help menu
         top = Toplevel()
         top.title("About")
         top.geometry("1350x730")
@@ -1285,11 +1282,11 @@ class Sketch:
         des_label_all[4] = Label(top, text="Coloring Box", font=("Arial", 30, "bold"), fg="yellow",bg="chocolate")
         des_label_all[4].place(x=250, y=600)
 
-    def tips(self):
+    def tips(self):#Tips under Help menu
         top = Toplevel()
         top.title("About")
-        top.geometry("1350x400")
-        top.minsize(1350,350)
+        top.geometry("1350x500")
+        top.minsize(1350,450)
         top.wm_iconbitmap("Icons/main_logo.ico")
         top.config(bg="chocolate")
         self.about_img.clear()
@@ -1316,6 +1313,9 @@ class Sketch:
 
         p_lb = Label(top, text="P ====>  For Change Background and Outline Color permanently of the upcoming shapes and lines",font=("Arial", 15, "bold"), fg="green", bg="chocolate")
         p_lb.place(x=120, y=290)
+
+        del_lb = Label(top, text="Select a region + Delete button--->Delete the Segment ",font=("Arial", 15, "bold"), fg="green", bg="chocolate")
+        del_lb.place(x=120, y=365)
 
 if __name__ == '__main__':
     window = Tk()
