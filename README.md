@@ -9,3 +9,7 @@ Important modules used here----->
 2.Pillow 
 
 3.Time
+
+Project demo link---> https://youtu.be/-HGEMEfffe8
+
+Demo video link at LinkedIn----> https://www.linkedin.com/posts/samarpan-dasgupta-4aa1061b0_project-mysirg-github-activity-6724304705402507264-T-YQ
