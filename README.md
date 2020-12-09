@@ -91,7 +91,7 @@
 </br>
 
 ---
-### <p align="left" style="color: #FF00FF">Click On the Star If You Love this Project and Follow me on Github To get New Project Updates</p>
+### <p align="left" style="color: #FF00FF">💡 Click On the Star If You Love this Project and Follow me on Github To get New Project Updates</p>
 
 
 
