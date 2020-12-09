@@ -29,7 +29,7 @@
 
 
 # <p style="color: Blue"> ***_💡 Functionality I Provide Here:_***</p>
-## ***<p style="color: green"> ➡️ 1. Tools Present in Shapes and Lines Section***</p>
+## ***_<p style="color: green"> ➡️ 1. Tools Present in Shapes and Lines Section:_***</p>
 - [x] ***_Straight Line_***
 - [x] ***_Bent Line_***
 - [x] ***_Dotted Bent Line_***
@@ -46,7 +46,7 @@
 </br></br>
 
 
-## ***_<p style="color: green"> ➡️ 2.Tools Present in Tools Collection_***</p>
+## ***_<p style="color: green"> ➡️ 2.Tools Present in Tools Collection:_***</p>
 - [x] ***_Pencil_***
 - [x] ***_Eraser_***
 - [x] ***_Text_***
@@ -55,17 +55,17 @@
 </br></br>
 
 
-## ***_<p style="color: green"> ➡️ 3. Width Controller_***</p>
+## ***_<p style="color: green"> ➡️ 3. Width Controller:_***</p>
 - [x] ***_Outline Width Controller_***
 - [x] ***_Eraser Width Controller_***
 </br></br>
 
 
-## ***_<p style="color: green"> ➡️ 4. Index Controller_***
+## ***_<p style="color: green"> ➡️ 4. Index Controller:_***
 ### <p style="color: orange"> ***_Store the Index of Every Step of Painting_***</p></p>
 </br>
 
-## ***_<p style="color: green"> ➡️ 5. Color Box_***</p>
+## ***_<p style="color: green"> ➡️ 5. Color Box:_***</p>
 - [x] ***_14 Standard Color Provided_***
 - [x] ***_Colorchooser Also Provided_***
 - [x] ***_Shape Specific Fill Color Selector_***
