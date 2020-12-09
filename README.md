@@ -10,13 +10,13 @@
 <p align="center"> <img alt="image" height="400px"  width="700px" src="https://1.bp.blogspot.com/-zroA3qC4VfM/X9CGo3__0nI/AAAAAAAAAsk/k4LnEruRaMA-aLXYt4X_xVrP_iz1GaiNgCLcBGAsYHQ/w640-h362/2020-12-09-13-38-04.png"/><br></p>
 
 ---
-### <p align="left" style="color: brown">_Important Module Used Here:_</p>
+### <p align="left" style="color: brown">⚒️ _Important Module Used Here:_</p>
 - ***_Tkinter_***
 - ***_Pillow_***
 - ***_Time_***
 
 
-### <p align="left" style="color: brown">_Steps for Download and Install Pillow Module as:_</p>
+### <p align="left" style="color: brown">➡️ _Steps for Download and Install Pillow Module as:_</p>
 
 ```
 1. Open Command Prompt(cmd) or Terminal
@@ -27,7 +27,7 @@
 ---
 
 
-# <p style="color: Blue"> ***_Functionality I Provide Here:_***</p>
+# <p style="color: Blue"> ***_💡 Functionality I Provide Here:_***</p>
 ## ***<p style="color: green"> 1. Tools Present in Shapes and Lines Section***</p>
 - [x] ***_Straight Line_***
 - [x] ***_Bent Line_***
