@@ -8,7 +8,7 @@
 ---
 ### <p align="center" style="color: blue">***Hello Programmers, Here I made a Drawing Application <p align="center" style="color: red">Sketch With Sam</p> <p align="center" style="color: blue">Using</p> <p align="center" style="color: red">Python Tkinter***</p></p>
 
-<p align="center"> <img alt="image" height="400px"  width="700px" src="https://1.bp.blogspot.com/-zroA3qC4VfM/X9CGo3__0nI/AAAAAAAAAsk/k4LnEruRaMA-aLXYt4X_xVrP_iz1GaiNgCLcBGAsYHQ/w640-h362/2020-12-09-13-38-04.png"/><br></p>
+<p align="center"> <img alt="GIF" height="400px"  width="700px" src="sketch_gif.gif"/><br></p>
 
 ---
 ### <p align="left" style="color: brown">⚒️ _Important Module Used Here:_</p>
