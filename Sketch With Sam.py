@@ -365,10 +365,10 @@ class Sketch:
         self.coord.config(text=str(e.x) + "," + str(e.y) + "px")
 
     def make_status_bar(self):#Make status bar
-        self.status = Label(self.window, text="Sketch With Passion", fg="brown", bg="#707070", font=("Arial", 12, "bold"))
+        self.status = Label(self.window, text="Sketch With Passion", fg="#292929", bg="#707070", font=("Arial", 12, "bold"))
         self.status.place(x=1150, y=685)
 
-        self.coord = Label(self.window, text="", fg="brown", bg="#707070", font=("Arial", 9, "bold"))
+        self.coord = Label(self.window, text="", fg="#292929", bg="#707070", font=("Arial", 9, "bold"))
         self.coord.place(x=20, y=687)
 
     def open_file(self,e):#For open a file
