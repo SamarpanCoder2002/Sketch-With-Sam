@@ -6,7 +6,7 @@
 ![](https://img.shields.io/badge/Status-Complete-green.svg)
 
 ---
-### <p align="center" style="color: blue">***Hello Programmers, Here I made a Drawing Application <p align="center" style="color: red">Sketch With Sam</p> <p align="center" style="color: blue">Using</p> <p align="center" style="color: red">Python Tkinter***</p></p>
+### <p align="center" style="color: blue">***Hello Developers, Here I made a Drawing Application <p align="center" style="color: red">Sketch With Sam</p> <p align="center" style="color: blue">Using</p> <p align="center" style="color: red">Python Tkinter***</p></p>
 
 <p align="center"> <img alt="GIF" height="400px"  width="700px" src="sketch_gif.gif"/><br></p>
 
@@ -19,9 +19,9 @@
 
 ### <p align="left" style="color: brown">➡️ _Steps for Download and Install Pillow Module as:_</p>
 
-```
-1. Open Command Prompt(cmd) or Terminal
-2. Write as-->
+#### 1. Open Command Prompt(cmd) or Terminal
+#### 2. Write as-->
+```cmd
         pip install pillow
 ```
 
@@ -91,11 +91,10 @@
 </br>
 
 ---
-### <p align="left" style="color: #FF00FF">💡 Click On the Star If You Love this Project and Follow me on Github To get New Project Updates</p>
 
+<h3 align="center">🙏 Show 💙 by Starring this Repo 🙏</h3>
 
+###  [<p align="center">📌 Application Related Video Link</p>](https://youtu.be/-HGEMEfffe8 "LCO")
 
-- ###  [Application Related Video Link](https://youtu.be/-HGEMEfffe8 "LCO")
-
-- ###  [Follow Me on LinkedIn To Get Regular Project Updates](https://www.linkedin.com/in/samarpan-dasgupta-4aa1061b0/ "LCO")
+###  [<p align="center">📌 Follow Me on LinkedIn To Get Regular Project Updates</p>](https://www.linkedin.com/in/samarpan-dasgupta-4aa1061b0/ "LCO")
  
