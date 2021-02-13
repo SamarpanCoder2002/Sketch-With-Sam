@@ -22,7 +22,7 @@
 #### 1. Open Command Prompt(cmd) or Terminal
 #### 2. Write as-->
 ```cmd
-        pip install pillow
+pip install pillow
 ```
 
 ---
