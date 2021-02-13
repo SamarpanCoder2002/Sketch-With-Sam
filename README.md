@@ -28,8 +28,8 @@
 ---
 
 
-# <p style="color: Blue"> ***_💡 Functionality I Provide Here:_***</p>
-## ***_<p style="color: green"> ➡️ 1. Tools Present in Shapes and Lines Section:_***</p>
+# <p style="color: Blue"> 💡 ***_Functionality I Provide Here:_***</p>
+### ***_<p style="color: green"> ➡️ 1. Tools Present in Shapes and Lines Section:_***</p>
 - [x] ***_Straight Line_***
 - [x] ***_Bent Line_***
 - [x] ***_Dotted Bent Line_***
@@ -46,7 +46,7 @@
 </br></br>
 
 
-## ***_<p style="color: green"> ➡️ 2.Tools Present in Tools Collection:_***</p>
+### ***_<p style="color: green"> ➡️ 2.Tools Present in Tools Collection:_***</p>
 - [x] ***_Pencil_***
 - [x] ***_Eraser_***
 - [x] ***_Text_***
@@ -55,17 +55,17 @@
 </br></br>
 
 
-## ***_<p style="color: green"> ➡️ 3. Width Controller:_***</p>
+### ***_<p style="color: green"> ➡️ 3. Width Controller:_***</p>
 - [x] ***_Outline Width Controller_***
 - [x] ***_Eraser Width Controller_***
 </br></br>
 
 
-## ***_<p style="color: green"> ➡️ 4. Index Controller:_***
+### ***_<p style="color: green"> ➡️ 4. Index Controller:_***
 ### <p style="color: orange"> ***_Store the Index of Every Step of Painting_***</p></p>
 </br>
 
-## ***_<p style="color: green"> ➡️ 5. Color Box:_***</p>
+### ***_<p style="color: green"> ➡️ 5. Color Box:_***</p>
 - [x] ***_14 Standard Color Provided_***
 - [x] ***_Colorchooser Also Provided_***
 - [x] ***_Shape Specific Fill Color Selector_***
@@ -74,7 +74,7 @@
 </br></br>
 
 
-## ***_<p style="color: green"> ➡️ 6. Other Important Facility Provided Here:_***</p>
+### ***_<p style="color: green"> ➡️ 6. Other Important Facility Provided Here:_***</p>
 - [x] ***_New File Open_***
 - [x] ***_Open an Existing File_***
 - [x] ***_Save the Current File_***
