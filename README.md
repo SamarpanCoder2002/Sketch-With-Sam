@@ -92,7 +92,7 @@ pip install pillow
 
 ---
 
-<h3 align="center">🙏 Show 💙 by Starring this Repo 🙏</h3>
+<h3 align="center">🙏 Show some 💙 by Starring this Repo 🙏</h3>
 
 ###  [<p align="center">📌 Application Related Video Link</p>](https://youtu.be/-HGEMEfffe8 "LCO")
 
