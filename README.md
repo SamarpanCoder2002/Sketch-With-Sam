@@ -6,7 +6,7 @@
 ![](https://img.shields.io/badge/Status-Complete-green.svg)
 
 ---
-### <p align="center" style="color: blue">***Hello Developers, Here my new Drawing Application <p align="center" style="color: red">Sketch With Sam</p> <p align="center" style="color: blue">Using</p> <p align="center" style="color: red">Python Tkinter***</p></p>
+### <p align="center" style="color: blue">***Hello Developers, Introducing my new Drawing Application <p align="center" style="color: red">Sketch With Sam</p> <p align="center" style="color: blue">Using</p> <p align="center" style="color: red">Python Tkinter***</p></p>
 
 <p align="center"> <img alt="GIF" height="400px"  width="700px" src="sketch_gif.gif"/><br></p>
 
